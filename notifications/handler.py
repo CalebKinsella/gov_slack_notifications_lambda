@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 #     print(event)
     print(event["detail"]["state"])
     message = ""
-    codepipeline_url = f"https://{event['region']}.console.aws-us-gov.amazon.com/codesuite/codepipeline/pipelines/{event['detail']['pipeline']}/view?region={event['region']}"
+    codepipeline_url = f"https://{event['region']}.console.amazonaws-us-gov.com/codesuite/codepipeline/pipelines/{event['detail']['pipeline']}/view?region={event['region']}"
 
     if event["detail"]["state"] == "SUCCEEDED":
             message = f"-------------------------------\nCodePipeline for: {event['detail']['pipeline']} \n Time: {event['time']} \n Status: {event['detail']['state']} :white_check_mark: \n------------------------------- "
