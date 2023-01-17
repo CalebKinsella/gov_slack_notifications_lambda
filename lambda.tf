@@ -22,7 +22,7 @@ resource "aws_lambda_permission" "allow_cloudwatch" {
   action        = "lambda:InvokeFunction"
   function_name = module.lambda_function.lambda_function_name
   principal     = "events.amazonaws.com"
-  source_arn    = "arn:aws:events:${var.region}:${data.aws_caller_identity.current.account_id}:rule/Codepipeline-${var.appname}-${var.environment}"
+  source_arn    = "arn:aws-us-gov:events:${var.region}:${data.aws_caller_identity.current.account_id}:rule/Codepipeline-${var.appname}-${var.environment}"
   #  qualifier     = aws_lambda_alias.test_alias.name
 }
 
@@ -32,7 +32,7 @@ resource "aws_lambda_permission" "allow_cloudwatch_s3_frontend" {
   action        = "lambda:InvokeFunction"
   function_name = module.lambda_function.lambda_function_name
   principal     = "events.amazonaws.com"
-  source_arn    = "arn:aws:events:${var.region}:${data.aws_caller_identity.current.account_id}:rule/Codepipeline-${var.appname}-${var.environment}_s3_frontend"
+  source_arn    = "arn:aws-us-gov:events:${var.region}:${data.aws_caller_identity.current.account_id}:rule/Codepipeline-${var.appname}-${var.environment}_s3_frontend"
   #  qualifier     = aws_lambda_alias.test_alias.name
 }
 
